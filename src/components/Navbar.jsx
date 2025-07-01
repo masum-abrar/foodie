@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { MdOutlineFastfood } from 'react-icons/md'
 
-export default function Navbar() {
+export default function Navbar({ darkBg = false }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrollDirection, setScrollDirection] = useState('up')
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -18,28 +18,39 @@ export default function Navbar() {
   const toggleMenu = () => setMenuOpen(!menuOpen)
 
   // Scroll show/hide logic
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setScrollDirection('down')
-      } else {
-        setScrollDirection('up')
-      }
-      setLastScrollY(currentScrollY)
+ const [hasScrolled, setHasScrolled] = useState(false)
+
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY
+
+    // Detect scroll direction
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      setScrollDirection('down')
+    } else {
+      setScrollDirection('up')
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY])
+    // Detect any scroll for blackish navbar
+    setHasScrolled(currentScrollY > 20)
+
+    setLastScrollY(currentScrollY)
+  }
+
+  window.addEventListener('scroll', handleScroll)
+  return () => window.removeEventListener('scroll', handleScroll)
+}, [lastScrollY])
+
 
   return (
-    <nav
+   <nav
       className={`fixed left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl 
-        bg-white/30 backdrop-blur-md shadow-lg border border-white/20 
+        ${hasScrolled || darkBg ? 'bg-black/70' : 'bg-white/30'}
+        backdrop-blur-md shadow-lg border border-white/20 
         rounded-2xl px-6 py-3 transition-all duration-300
         ${scrollDirection === 'down' ? 'top-[-100px]' : 'top-4'}`}
     >
+
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-2 text-xl font-extrabold tracking-wider 
