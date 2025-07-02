@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import MealDetails from './pages/MealDetails'
 import Bookmarks from './pages/Bookmarks'
+import RandomMeal from './pages/RandomMeal'
 
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
     <Route path="/" element={<Home/>} />
     <Route path="/meals" element={<h1 className="text-3xl text-center my-6 font-bold">Meal List</h1>} />
     <Route path="/meal/:id" element={<MealDetails/>} />
-    <Route path="/bookmarks" element={<Bookmarks/>} />
+    <Route path="/favorites" element={<Bookmarks/>} />
+    <Route path='/random' element={<RandomMeal/>} />
    </Routes>
   )
 }

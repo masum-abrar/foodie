@@ -10,6 +10,7 @@ import Navbar from '../components/Navbar'
 import Banner from '../components/Banner'
 import { TbFilterSearch } from 'react-icons/tb'
 import { motion } from 'framer-motion'
+import { Footer } from '../components/Footer'
 const Home = () => {
      const { meals, status, error } = useSelector(state => state.meals)
  const dispatch = useDispatch()
@@ -176,6 +177,7 @@ const Home = () => {
          <RandomMealModal/>
         
        </div>
+       <Footer/>
    </div>
   )
 }

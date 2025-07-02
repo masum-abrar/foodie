@@ -3,7 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchRandom } from '../features/meals/randomSlice'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiX,  FiExternalLink } from 'react-icons/fi'
+import { FiX,  FiExternalLink   } from 'react-icons/fi'
+import { FaDiceFive } from 'react-icons/fa'
+
 import { TbChefHat } from 'react-icons/tb'
 
 export default function RandomMealModal() {
@@ -36,15 +38,94 @@ export default function RandomMealModal() {
   return (
     <>
       {/* Random Meal Button */}
+     <div className="relative px-6 md:px-12 mb-12">
+       <div className="absolute inset-0 bg-gradient-to-br from-rose-50/30 to-amber-50/30" />
+       <div className="absolute inset-0 bg-[url('https://assets-global.website-files.com/5f4ec532…/64e9a4e0…_noise-texture.png')] opacity-10 mix-blend-overlay" />
+  {/* Decorative background elements */}
+  {/* <div className="absolute left-12 top-0 h-24 w-0.5 bg-rose-500 to-transparent" /> */}
+  <div className="absolute right-12 bottom-0 text-8xl opacity-5 font-bold text-rose-400 select-none">
+    ?
+  </div>
+
+  <div className="flex flex-col items-center text-center">
+    {/* Animated heading */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="mb-6  mt-10"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+          Feeling Adventurous?
+        </span>
+      </h2>
+      <p className="text-lg text-rose-600/80 max-w-md">
+        Let us surprise you with a random culinary delight
+      </p>
+    </motion.div>
+
+    {/* Enhanced Random Meal Button */}
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className="relative group"
+    >
       <motion.button
         onClick={handleOpen}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white rounded-full shadow-lg hover:shadow-rose-300/50 transition-all"
+        className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-rose-500 to-pink-500 text-white rounded-full shadow-xl hover:shadow-rose-300/50 transition-all"
       >
-        {/* <FiDice5 className="text-lg" /> */}
-        <span className="font-medium">Random Meal</span>
+        <motion.div
+          animate={{ 
+            rotate: [0, 15, -15, 0],
+            transition: { 
+              duration: 2,
+              repeat: Infinity,
+              repeatDelay: 3
+            }
+          }}
+        >
+        <FaDiceFive className="text-xl " />
+
+        </motion.div>
+        <span className="font-semibold text-lg">Generate Random Meal</span>
       </motion.button>
+      
+      {/* Floating animation effect */}
+      <motion.div
+        className="absolute inset-0 rounded-full bg-rose-400/30 blur-md -z-10"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0, 0.3]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+    </motion.div>
+
+    {/* Decorative dots pattern */}
+    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="w-2 h-2 bg-rose-300 rounded-full"
+          animate={{
+            y: [0, -5, 0],
+            opacity: [0.6, 1, 0.6]
+          }}
+          transition={{
+            duration: 2,
+            delay: i * 0.2,
+            repeat: Infinity
+          }}
+        />
+      ))}
+    </div>
+  </div>
+</div>
 
       {/* Modal */}
       <AnimatePresence>

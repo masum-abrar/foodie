@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { MdOutlineFastfood } from 'react-icons/md'
-
+import { motion } from 'framer-motion'
 export default function Navbar({ darkBg = false }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrollDirection, setScrollDirection] = useState('up')
@@ -12,7 +12,7 @@ export default function Navbar({ darkBg = false }) {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Random Meal', path: '/random' },
-    { name: 'Bookmarks', path: '/bookmarks' },
+    { name: 'Favorite', path: '/favorites' },
   ]
 
   const toggleMenu = () => setMenuOpen(!menuOpen)
@@ -62,18 +62,17 @@ useEffect(() => {
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 items-center">
           {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className={`relative font-medium text-sm uppercase tracking-wide
-                text-transparent bg-clip-text text-white
-                after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-gradient-to-r from-pink-400 to-indigo-400 
-                after:transition-all after:duration-300 hover:after:w-full
-                ${location.pathname === item.path ? 'after:w-full' : ''}
-              `}
-            >
-              {item.name}
-            </Link>
+            <motion.div
+          key={item.name}
+          whileHover={{ y: -2 }}
+        >
+          <Link
+            to={item.path}
+            className="text-white hover:text-rose-500 font-medium transition-colors"
+          >
+            {item.name}
+          </Link>
+        </motion.div>
           ))}
         </div>
 
@@ -87,15 +86,17 @@ useEffect(() => {
       {menuOpen && (
         <div className="mt-3 md:hidden bg-white/80 backdrop-blur-lg shadow-lg rounded-xl px-6 py-4 transition">
           {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              onClick={() => setMenuOpen(false)}
-              className="block py-2 text-base font-semibold uppercase tracking-wide
-                text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
-            >
-              {item.name}
-            </Link>
+            <motion.div
+          key={item.name}
+          whileHover={{ y: -2 }}
+        >
+          <Link
+            to={item.path}
+            className="text-rose-700/80 hover:text-rose-500 font-medium transition-colors"
+          >
+            {item.name}
+          </Link>
+        </motion.div>
           ))}
         </div>
       )}
