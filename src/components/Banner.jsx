@@ -35,7 +35,7 @@ const Banner = () => {
 
   return (
     <div className="relative h-[90vh] max-h-[800px] w-full overflow-hidden">
-      {/* Background Slideshow */}
+     
       <div className="absolute inset-0 flex">
         {images.map((image, index) => (
           <motion.div
@@ -53,13 +53,13 @@ const Banner = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/30 z-[2]" />
       </div>
 
-      {/* Content - Perfectly Aligned */}
+     
       <div className="relative z-10 h-full flex items-center">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={controls}
-            className="max-w-2xl space-y-6" // Using space-y for consistent gaps
+            className="max-w-2xl space-y-6" 
           >
             <motion.span 
               className="block text-sm uppercase tracking-[0.2em] text-rose-400 font-medium"
@@ -76,7 +76,7 @@ const Banner = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              style={{ fontFamily: "'Playfair Display', serif" }} // Premium font
+              style={{ fontFamily: "'Playfair Display', serif" }} 
             >
               Discover {texts[currentSlide]}
             </motion.h1>
@@ -86,7 +86,7 @@ const Banner = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 350 }} // Clean secondary font
+              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 350 }} 
             >
               Explore curated collections of the world's finest culinary experiences and elevate your dining journey.
             </motion.p>
@@ -95,7 +95,7 @@ const Banner = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="pt-2" // Extra padding for button
+              className="pt-2" 
             >
               <button className="flex items-center gap-3 px-8 py-3.5 bg-rose-600 hover:bg-rose-700 text-white font-medium rounded-full transition-all duration-300 group shadow-lg hover:shadow-rose-500/30">
                 <span className="tracking-wide">Explore Now</span>
@@ -106,7 +106,7 @@ const Banner = () => {
         </div>
       </div>
 
-      {/* Slide Indicators - Reddish Theme */}
+     
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
         {texts.map((_, index) => (
           <button
@@ -118,7 +118,7 @@ const Banner = () => {
         ))}
       </div>
 
-      {/* Scrolling Indicator */}
+      
       <motion.div 
         className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10"
         animate={{ y: [0, 10, 0] }}

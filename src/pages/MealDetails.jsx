@@ -23,7 +23,7 @@ export default function MealDetails() {
       .catch(() => setLoading(false))
   }, [id])
 
-  // Extract ingredients and measurements
+  
   const ingredients = []
   for (let i = 1; i <= 20; i++) {
     if (meal?.[`strIngredient${i}`]) {
@@ -69,13 +69,13 @@ export default function MealDetails() {
     
        <Navbar  darkBg />
  
-      {/* Modern Glass Background */}
+      
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         className="relative bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden border border-white/20"
       >
-        {/* Meal Header */}
+        
         <div className="relative">
           <img 
             src={meal.strMealThumb} 
@@ -124,7 +124,7 @@ export default function MealDetails() {
           </div>
         </div>
 
-        {/* Meal Content */}
+        
         <div className="p-8">
           {/* Action Buttons */}
           <div className="flex justify-end gap-3 mb-8">
@@ -136,7 +136,7 @@ export default function MealDetails() {
             </button>
           </div>
 
-          {/* Tab Navigation */}
+      
           <div className="flex border-b border-gray-200 mb-8">
             <button
               onClick={() => setActiveTab('instructions')}
@@ -152,7 +152,7 @@ export default function MealDetails() {
             </button>
           </div>
 
-          {/* Tab Content */}
+         
           <div className="mb-8">
             {activeTab === 'instructions' ? (
               <motion.div
@@ -192,7 +192,7 @@ export default function MealDetails() {
             )}
           </div>
 
-          {/* Video Embed */}
+          
           {meal.strYoutube && (
             <div className="mt-8">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Video Tutorial</h3>

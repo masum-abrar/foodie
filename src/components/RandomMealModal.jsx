@@ -26,7 +26,7 @@ export default function RandomMealModal() {
     dispatch({ type: 'meals/clearRandom' })
   }
 
-  // Close modal on ESC key
+  
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') handleClose()
@@ -37,18 +37,18 @@ export default function RandomMealModal() {
 
   return (
     <>
-      {/* Random Meal Button */}
+     
      <div className="relative px-6 md:px-12 mb-12">
        <div className="absolute inset-0 bg-gradient-to-br from-rose-50/30 to-amber-50/30" />
        <div className="absolute inset-0 bg-[url('https://assets-global.website-files.com/5f4ec532…/64e9a4e0…_noise-texture.png')] opacity-10 mix-blend-overlay" />
-  {/* Decorative background elements */}
+ 
   {/* <div className="absolute left-12 top-0 h-24 w-0.5 bg-rose-500 to-transparent" /> */}
   <div className="absolute right-12 bottom-0 text-8xl opacity-5 font-bold text-rose-400 select-none">
     ?
   </div>
 
   <div className="flex flex-col items-center text-center">
-    {/* Animated heading */}
+  
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export default function RandomMealModal() {
       </p>
     </motion.div>
 
-    {/* Enhanced Random Meal Button */}
+    
     <motion.div
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
@@ -91,7 +91,7 @@ export default function RandomMealModal() {
         <span className="font-semibold text-lg">Generate Random Meal</span>
       </motion.button>
       
-      {/* Floating animation effect */}
+      
       <motion.div
         className="absolute inset-0 rounded-full bg-rose-400/30 blur-md -z-10"
         animate={{
@@ -106,7 +106,7 @@ export default function RandomMealModal() {
       />
     </motion.div>
 
-    {/* Decorative dots pattern */}
+   
     <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
       {[...Array(5)].map((_, i) => (
         <motion.div
@@ -127,7 +127,7 @@ export default function RandomMealModal() {
   </div>
 </div>
 
-      {/* Modal */}
+      
       <AnimatePresence>
         {isOpen && (
           <motion.div

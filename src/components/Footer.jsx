@@ -31,7 +31,7 @@ export const Footer = () => {
             </span>
           </motion.div>
 
-          {/* Navigation Links */}
+         
            <div className="flex flex-wrap justify-center gap-6 md:gap-10">
       {items.map((item) => (
         <motion.div
@@ -48,7 +48,7 @@ export const Footer = () => {
       ))}
     </div>
 
-          {/* Social Icons */}
+         
           <div className="flex gap-5">
             {[FiGithub, FiTwitter, FiInstagram].map((Icon, index) => (
               <motion.a
@@ -64,10 +64,10 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
+       
         <div className="my-8 h-px bg-gradient-to-r from-transparent via-rose-200/50 to-transparent" />
 
-        {/* Copyright */}
+       
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center">
           <p className="text-rose-600/70 text-sm">
             &copy; {new Date().getFullYear()} MealVerse. All rights reserved.

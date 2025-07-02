@@ -111,7 +111,7 @@ export default function RoseFilters() {
               </div>
             </div>
 
-            {/* Ingredients Filter */}
+            {/* Ingredients start */}
             <div className="mb-4">
               <div className="flex justify-between items-center mb-2">
                 <h3 className="text-sm font-medium text-rose-700">Ingredients</h3>
@@ -146,7 +146,7 @@ export default function RoseFilters() {
               </div>
             </div>
 
-            {/* Active Filters */}
+            {/* category start */}
             {(selectedCategory || selectedIngredients.length > 0) && (
               <div className="mt-4 pt-4 border-t border-rose-200/50">
                 <div className="flex items-center gap-2">

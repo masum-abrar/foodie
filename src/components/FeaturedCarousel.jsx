@@ -7,13 +7,13 @@ import { TbChefHat } from 'react-icons/tb';
 import MealCard from './MealCard';
 
 export default function FeaturedCarousel({ meals }) {
-  // For parallax background effect
+
   const x = useMotionValue(0);
   const backgroundX = useTransform(x, [-100, 100], [20, -20]);
 
   return (
     <div className="relative px-4 py-20 max-w-8xl mx-auto overflow-hidden">
-      {/* Modern Animated Background */}
+      
       <motion.div 
         style={{ x: backgroundX }}
         className="absolute inset-0 -z-10 overflow-hidden"
@@ -21,7 +21,7 @@ export default function FeaturedCarousel({ meals }) {
         <div className="absolute inset-0 bg-gradient-to-br from-rose-50/30 to-amber-50/30" />
         <div className="absolute inset-0 bg-[url('https://assets-global.website-files.com/5f4ec532…/64e9a4e0…_noise-texture.png')] opacity-10 mix-blend-overlay" />
         
-        {/* Animated floating elements */}
+      
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
@@ -47,7 +47,7 @@ export default function FeaturedCarousel({ meals }) {
         ))}
       </motion.div>
 
-      {/* Bold Asymmetric Header */}
+     
      <motion.div 
   initial={{ opacity: 0, y: 40 }}
   whileInView={{ opacity: 1, y: 0 }}
@@ -55,11 +55,11 @@ export default function FeaturedCarousel({ meals }) {
   viewport={{ once: true }}
   className="mb-16 px-6 md:px-12 relative"
 >
-  {/* Modern decorative line */}
+ 
   <div className="absolute left-6 md:left-12 top-0 h-16 w-0.5 bg-gradient-to-b from-transparent via-rose-500 to-transparent" />
   
   <div className="flex flex-col space-y-4">
-    {/* Modern typography with tracking */}
+ 
     <div className="flex items-center gap-3">
       <TbChefHat className="text-4xl text-rose-500" />
       <span className="text-sm uppercase tracking-[0.3em] font-medium text-rose-500">
@@ -67,25 +67,25 @@ export default function FeaturedCarousel({ meals }) {
       </span>
     </div>
     
-    {/* Contemporary font pairing */}
+   
     <h2 className="text-5xl md:text-7xl font-light leading-[0.9] tracking-tight text-gray-900">
       <span className="font-medium">Culinary</span><br />
       <span className="text-rose-500 font-normal">Masterpieces</span>
     </h2>
     
-    {/* Modern subtitle */}
+   
     <p className="text-lg text-gray-500 max-w-lg font-light tracking-wide leading-relaxed">
       Chef-curated dishes showcasing seasonal ingredients and innovative techniques
     </p>
   </div>
 
-  {/* Decorative elements */}
+ 
   <div className="absolute right-6 md:right-12 bottom-0 text-8xl opacity-5 font-bold text-gray-400 select-none">
     01
   </div>
 </motion.div>
 
-      {/* 3D Coverflow Carousel */}
+      {/* Carousel */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -133,7 +133,7 @@ export default function FeaturedCarousel({ meals }) {
         </Swiper>
       </motion.div>
 
-      {/* Modern Scroll Indicator */}
+      
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

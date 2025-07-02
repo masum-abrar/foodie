@@ -11,7 +11,7 @@ export default function RoseSearchBar() {
   const dispatch = useDispatch();
   const inputRef = useRef(null);
 
-  // Sample trending searches (replace with your actual data)
+  
   const trendingSearches = ['Pasta', 'Salad', 'Chicken', 'Dessert', 'Vegan'];
 
   const handleSearch = (e) => {
@@ -35,7 +35,7 @@ export default function RoseSearchBar() {
 
   useEffect(() => {
     if (query.length > 2) {
-      // Here you could add debounced API calls for live suggestions
+      
       setShowSuggestions(true);
     } else {
       setShowSuggestions(false);

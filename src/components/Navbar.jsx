@@ -17,21 +17,21 @@ export default function Navbar({ darkBg = false }) {
 
   const toggleMenu = () => setMenuOpen(!menuOpen)
 
-  // Scroll show/hide logic
+  
  const [hasScrolled, setHasScrolled] = useState(false)
 
 useEffect(() => {
   const handleScroll = () => {
     const currentScrollY = window.scrollY
 
-    // Detect scroll direction
+    
     if (currentScrollY > lastScrollY && currentScrollY > 80) {
       setScrollDirection('down')
     } else {
       setScrollDirection('up')
     }
 
-    // Detect any scroll for blackish navbar
+    
     setHasScrolled(currentScrollY > 20)
 
     setLastScrollY(currentScrollY)
@@ -52,7 +52,7 @@ useEffect(() => {
     >
 
       <div className="flex justify-between items-center">
-        {/* Logo */}
+       
         <div className="flex items-center gap-2 text-xl font-extrabold tracking-wider 
                         text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500">
           <MdOutlineFastfood className="text-2xl text-red-500" />
@@ -76,7 +76,7 @@ useEffect(() => {
           ))}
         </div>
 
-        {/* Mobile Menu Toggle */}
+       
         <div className="md:hidden text-gray-700" onClick={toggleMenu}>
           {menuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
         </div>

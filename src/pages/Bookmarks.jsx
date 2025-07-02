@@ -13,18 +13,18 @@ export default function Bookmarks() {
     <div className="min-h-screen bg-gradient-to-b from-rose-50/20 to-amber-50/20 py-12 px-4 sm:px-6 lg:px-8">
       <Navbar darkBg />
       <div className="max-w-7xl mx-auto mt-12">
-       {/* Ultra-Modern Header */}
+      
 <motion.div
   initial={{ opacity: 0, y: 40 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
   className="mb-16 px-6 md:px-12 relative"
 >
-  {/* Decorative line */}
+ 
   <div className="absolute left-6 md:left-12 top-0 h-20 w-0.5 bg-gradient-to-b from-transparent via-rose-500 to-transparent" />
   
   <div className="flex flex-col space-y-4">
-    {/* Icon with animated pulse */}
+   
     <motion.div
       animate={{ 
         scale: [1, 1.05, 1],
@@ -45,7 +45,7 @@ export default function Bookmarks() {
       </span>
     </motion.div>
     
-    {/* Modern typography with gradient */}
+    
     <h1 className="text-5xl md:text-6xl font-light leading-[0.9] tracking-tight">
       <span className="font-medium bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
         Your Favorite
@@ -53,7 +53,7 @@ export default function Bookmarks() {
       <span className="font-normal text-gray-900">Recipes</span>
     </h1>
     
-    {/* Animated subtitle */}
+    
     <motion.p
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -66,13 +66,13 @@ export default function Bookmarks() {
     </motion.p>
   </div>
 
-  {/* Decorative number */}
+ 
   <div className="absolute right-6 md:right-12 bottom-0 text-8xl opacity-5 font-bold text-rose-400 select-none">
     {bookmarks.length || 0}
   </div>
 </motion.div>
 
-        {/* Content */}
+       
         <AnimatePresence>
           {bookmarks.length === 0 ? (
             <motion.div
@@ -82,9 +82,9 @@ export default function Bookmarks() {
               className="flex flex-col items-center justify-center py-16 bg-white/70 backdrop-blur-sm rounded-3xl shadow-sm border border-rose-100"
             >
               <FiHeart className="text-5xl text-rose-300 mb-4" />
-              <h2 className="text-2xl font-medium text-gray-800 mb-2">No bookmarks yet</h2>
+              <h2 className="text-2xl font-medium text-gray-800 mb-2">No favorites yet</h2>
               <p className="text-gray-600 max-w-md text-center mb-6">
-                Save your favorite recipes by clicking the bookmark icon on any meal
+                Save your favorite recipes by clicking the favorite icon on any meal
               </p>
               {/* <Link href='/'>
               <motion.button

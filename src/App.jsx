@@ -16,7 +16,7 @@ function App() {
   return (
    <Routes>
     <Route path="/" element={<Home/>} />
-    <Route path="/meals" element={<h1 className="text-3xl text-center my-6 font-bold">Meal List</h1>} />
+    {/* <Route path="/meals" element={<h1 className="text-3xl text-center my-6 font-bold">Meal List</h1>} /> */}
     <Route path="/meal/:id" element={<MealDetails/>} />
     <Route path="/favorites" element={<Bookmarks/>} />
     <Route path='/random' element={<RandomMeal/>} />

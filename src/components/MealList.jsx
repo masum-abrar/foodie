@@ -26,7 +26,7 @@ export default function MealList() {
     toShow = filtered
   }
 
-  // Pagination logic
+ 
   const indexOfLastMeal = currentPage * mealsPerPage
   const indexOfFirstMeal = indexOfLastMeal - mealsPerPage
   const currentMeals = toShow.slice(indexOfFirstMeal, indexOfLastMeal)
@@ -36,13 +36,13 @@ export default function MealList() {
 
   return (
     <div className="relative px-4 py-12 max-w-8xl mx-auto">
-      {/* Modern Animated Background */}
+     
       <motion.div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-rose-50/20 to-amber-50/20" />
         <div className="absolute inset-0 bg-[url('https://assets-global.website-files.com/5f4ec532…/64e9a4e0…_noise-texture.png')] opacity-5 mix-blend-overlay" />
       </motion.div>
 
-      {/* State Handling with Animations */}
+      
       <AnimatePresence>
         {loading && (
           <motion.div
@@ -105,7 +105,7 @@ export default function MealList() {
               ))}
             </motion.div>
 
-            {/* Modern Pagination */}
+            {/* Pagination start */}
             {totalPages > 1 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -124,7 +124,7 @@ export default function MealList() {
 
                   {Array.from({ length: totalPages }, (_, i) => {
                     const pageNumber = i + 1
-                    // Show limited pages with ellipsis
+                   
                     if (
                       pageNumber === 1 ||
                       pageNumber === totalPages ||

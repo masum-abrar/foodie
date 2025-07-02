@@ -58,7 +58,7 @@ export default function BookmarkButton({ meal, className }) {
         </span>
       </button>
 
-      {/* Modern Toast Notification */}
+      
     <AnimatePresence>
   {showToast && (
     <motion.div
@@ -79,7 +79,7 @@ export default function BookmarkButton({ meal, className }) {
         <FiX className="text-xs" />
       </button>
       
-      {/* Progress bar */}
+      
       <motion.div
         initial={{ width: '100%' }}
         animate={{ width: '0%' }}

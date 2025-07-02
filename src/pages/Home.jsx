@@ -39,10 +39,10 @@ const Home = () => {
         </section>
       )}
 
-         {/* <h1 className="text-3xl text-center my-6 font-bold">🍽 Meal Explorer</h1> */}
+         {/* <h1 className="text-3xl text-center my-6 font-bold"> Meal Explorer</h1> */}
          
         <div className="relative px-4 py-20 max-w-8xl mx-auto overflow-hidden">
-            {/* Modern Animated Background (Same as FeaturedCarousel) */}
+           
             <motion.div 
               className="absolute inset-0 -z-10 overflow-hidden"
             >
@@ -74,7 +74,7 @@ const Home = () => {
               ))}
             </motion.div>
       
-            {/* Consistent Asymmetric Header */}
+            
             <motion.div 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +107,7 @@ const Home = () => {
               </div>
             </motion.div>
       
-            {/* Search and Filter Components */}
+           
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -116,7 +116,7 @@ const Home = () => {
               className="px-8"
             >
               <div className="space-y-8">
-                {/* Search Bar with Glassmorphism */}
+              
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
@@ -127,7 +127,7 @@ const Home = () => {
                   <SearchBar />
                 </motion.div>
       
-                {/* Filters with Glassmorphism */}
+                
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
@@ -140,7 +140,7 @@ const Home = () => {
               </div>
             </motion.div>
       
-            {/* Modern Scroll Indicator */}
+            
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
