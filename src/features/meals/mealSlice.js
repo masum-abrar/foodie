@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-// 🔍 Meal search
+
 export const fetchMeals = createAsyncThunk(
   'meals/fetchMeals',
   async (search = '') => {
@@ -10,25 +10,25 @@ export const fetchMeals = createAsyncThunk(
   }
 )
 
-// 🎲 Random meal
+
 export const fetchRandom = createAsyncThunk('meals/fetchRandom', async () => {
   const res = await axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
   return res.data.meals[0]
 })
 
-// 📦 All category list
+
 export const fetchCategories = createAsyncThunk('meals/fetchCategories', async () => {
   const res = await axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
   return res.data.categories
 })
 
-// 🔃 Meals filtered by category
+
 export const fetchByCategory = createAsyncThunk('meals/fetchByCategory', async (category) => {
   const res = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
   return res.data.meals
 })
 
-// mealSlice.js বা thunk ফাইলে
+
 export const fetchIngredients = createAsyncThunk('meals/fetchIngredients', async () => {
   const res = await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list')
   return res.data.meals
@@ -54,7 +54,7 @@ export const fetchByIngredients = createAsyncThunk(
 
     const allMeals = responses.flatMap(res => res.data.meals || [])
 
-    // Remove duplicate meals (by idMeal)
+    
     const unique = {}
     allMeals.forEach(meal => {
       unique[meal.idMeal] = meal
@@ -71,12 +71,12 @@ export const fetchByIngredients = createAsyncThunk(
 const mealSlice = createSlice({
   name: 'meals',
   initialState: {
-    meals: [],             // For searched meals
-    randomMeal: null,      // For random meal modal
-    categories: [],        // For dropdown (filter)
-     ingredients: [],        // 🆕 Dropdown দেখাবে
+    meals: [],             
+    randomMeal: null,      
+    categories: [],        
+     ingredients: [],        
   ingredientFiltered: [], 
-    filteredMeals: [],     // Meals by category
+    filteredMeals: [],     
     loading: false,
     error: null,
   },
@@ -90,7 +90,7 @@ const mealSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // 🔍 Meal search
+     
       .addCase(fetchMeals.pending, (state) => {
         state.loading = true
         state.error = null
@@ -104,7 +104,7 @@ const mealSlice = createSlice({
         state.error = action.error.message
       })
 
-      // 🎲 Random meal
+      
       .addCase(fetchRandom.pending, (state) => {
         state.loading = true
       })
@@ -117,7 +117,7 @@ const mealSlice = createSlice({
         state.error = action.error.message
       })
 
-      // 📦 All categories
+      
       .addCase(fetchCategories.pending, (state) => {
         state.loading = true
       })
@@ -130,7 +130,7 @@ const mealSlice = createSlice({
         state.error = action.error.message
       })
 
-      // 🔃 Filter meals by category
+      
       .addCase(fetchByCategory.pending, (state) => {
         state.loading = true
       })
@@ -143,12 +143,12 @@ const mealSlice = createSlice({
         state.error = action.error.message
       })
 
-// Ingredients fetch
+
 .addCase(fetchIngredients.fulfilled, (state, action) => {
   state.ingredients = action.payload || []
 })
 
-// Ingredients filter
+
 // .addCase(fetchByIngredients.fulfilled, (state, action) => {
 //   state.ingredientFiltered = action.payload || []
 // })
